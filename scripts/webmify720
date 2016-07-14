@@ -16,6 +16,6 @@ then META="-i '$FILEBASE.meta' -map_metadata 0:1"
 else META=''
 fi
 
-i -FILENAME "$META" $s -WIDTH $ffmpeg$X$HEIGHT -aspect 16:9 -vcodec libvpx -vpre 720p -vb 4M -r 24000/1001 -crf 20 -threads 2 -acodec libvorbis -ab 192k -aq 6 "$FILEBASE.$WIDTH$X$HEIGHT.webm"
+ffmpeg -i "$FILENAME" $META -s $WIDTH$X$HEIGHT -aspect 16:9 -vcodec libvpx -vpre 720p -vb 4M -r 24000/1001 -crf 20 -threads 2 -acodec libvorbis -ab 192k -aq 6 "$FILEBASE.$WIDTH$X$HEIGHT.webm"
 
 done
